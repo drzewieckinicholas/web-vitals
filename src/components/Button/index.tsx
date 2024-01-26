@@ -24,14 +24,18 @@ export default function Button({
   warning,
   ...props
 }: ButtonProps): JSX.Element {
-  const classes = classNames(className, 'mb-4 flex px-4 py-2 text-white', {
-    'bg-blue-500': primary,
-    'bg-gray-500': secondary,
-    'bg-green-500': success,
-    'bg-yellow-500': warning,
-    'bg-red-500': error,
-    'rounded-full': rounded,
-  });
+  const classes = classNames(
+    className,
+    'mb-4 flex px-4 py-2 text-white outline-0',
+    {
+      'bg-blue-500': primary,
+      'bg-gray-500': secondary,
+      'bg-green-500': success,
+      'bg-yellow-500': warning,
+      'bg-red-500': error,
+      'rounded-full': rounded,
+    },
+  );
 
   return (
     <button {...props} className={classes}>
