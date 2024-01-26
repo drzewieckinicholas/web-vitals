@@ -1,4 +1,9 @@
-nav svg {
-  height: 1rem;
-  width: 1rem;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  a:hover {
+    @apply underline;
+  }
 }
