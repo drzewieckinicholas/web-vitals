@@ -4,13 +4,17 @@ const reportWebVitals = (onPerfEntry?: ReportCallback) => {
   if (onPerfEntry && onPerfEntry instanceof Function) {
     import('web-vitals/attribution').then(
       ({ onCLS, onFCP, onFID, onINP, onLCP, onTTFB }) => {
-        onCLS(onPerfEntry);
+        onCLS(onPerfEntry, {
+          reportAllChanges: true,
+        });
         onFCP(onPerfEntry);
         onFID(onPerfEntry);
-        onINP(onPerfEntry);
+        onINP(onPerfEntry, {
+          reportAllChanges: true,
+        });
         onLCP(onPerfEntry);
         onTTFB(onPerfEntry);
-      }
+      },
     );
   }
 };
