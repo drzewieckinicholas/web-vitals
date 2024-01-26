@@ -34,7 +34,7 @@ export default function InteractionToNextPaint(): JSX.Element {
         <Button secondary rounded onClick={handleWithoutWebWorker}>
           Run Task Without Web Worker
         </Button>
-        {taskStatus && <p>{taskStatus}</p>}
+        {taskStatus && <p className='text-green-500'>{taskStatus}</p>}
       </section>
     </>
   );
