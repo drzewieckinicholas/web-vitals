@@ -28,13 +28,20 @@ export default function InteractionToNextPaint(): JSX.Element {
       <section>
         <h2>Web Workers</h2>
         <p>Lorem ipsum dolor sit amet.</p>
-        <Button primary rounded onClick={handleWithWebWorker}>
+        <Button success rounded onClick={handleWithWebWorker}>
           Run Task With Web Worker
         </Button>
-        <Button secondary rounded onClick={handleWithoutWebWorker}>
+        <Button
+          secondary
+          rounded
+          onClick={() => setTaskStatus('Control task completed!')}
+        >
+          Control Button for Interactions
+        </Button>
+        <Button error rounded onClick={handleWithoutWebWorker}>
           Run Task Without Web Worker
         </Button>
-        {taskStatus && <p className='text-green-500'>{taskStatus}</p>}
+        {taskStatus && <span className='text-green-500'>{taskStatus}</span>}
       </section>
     </>
   );
