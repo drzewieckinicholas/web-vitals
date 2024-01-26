@@ -5,15 +5,15 @@ import { longTask } from '../../utils/longTask.ts';
 import { worker } from '../../worker/index.ts';
 
 export default function InteractionToNextPaint(): JSX.Element {
-  const [taskStatus, setTaskStatus] = useState('');
+  const [taskStatus, setTaskStatus] = useState<string>('');
 
-  const handleWithWebWorker = async () => {
+  const handleWithWebWorker = async (): Promise<void> => {
     await worker.handleLongTask(2000);
 
     setTaskStatus('Long task completed with Web Worker!');
   };
 
-  const handleWithoutWebWorker = () => {
+  const handleWithoutWebWorker = (): void => {
     longTask(2000);
 
     setTaskStatus('Long task completed without Web Worker!');
@@ -31,11 +31,7 @@ export default function InteractionToNextPaint(): JSX.Element {
         <Button success rounded onClick={handleWithWebWorker}>
           Do Long Task With Web Worker
         </Button>
-        <Button
-          secondary
-          rounded
-          onClick={() => setTaskStatus('Interaction!')}
-        >
+        <Button secondary rounded onClick={() => setTaskStatus('Interaction!')}>
           Click to Test Interactions
         </Button>
         <Button error rounded onClick={handleWithoutWebWorker}>

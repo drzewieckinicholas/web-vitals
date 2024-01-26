@@ -5,9 +5,9 @@ import { Link } from 'react-router-dom';
 
 import Container from '../Container';
 
-export default function Nav() {
+export default function Nav(): JSX.Element {
   return (
-    <nav className='p-4'>
+    <nav className='bg-neutral-800 p-4'>
       <Container>
         <div className='flex items-center justify-between'>
           <SignalIcon className='size-8' />
