@@ -31,8 +31,8 @@ export default function Button({
       'bg-blue-500': primary,
       'bg-gray-500': secondary,
       'bg-green-500': success,
-      'bg-yellow-500': warning,
       'bg-red-500': error,
+      'bg-yellow-500': warning,
       'rounded-full': rounded,
     },
   );
