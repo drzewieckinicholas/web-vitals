@@ -8,15 +8,15 @@ export default function InteractionToNextPaint(): JSX.Element {
   const [taskStatus, setTaskStatus] = useState('');
 
   const handleWithWebWorker = async () => {
-    await worker.handleLongTask(1000);
+    await worker.handleLongTask(2000);
 
-    setTaskStatus('Task completed with Web Worker!');
+    setTaskStatus('Long task completed with Web Worker!');
   };
 
   const handleWithoutWebWorker = () => {
-    longTask(1000);
+    longTask(2000);
 
-    setTaskStatus('Task completed without Web Worker!');
+    setTaskStatus('Long task completed without Web Worker!');
   };
 
   return (
@@ -29,17 +29,17 @@ export default function InteractionToNextPaint(): JSX.Element {
         <h2>Web Workers</h2>
         <p>Lorem ipsum dolor sit amet.</p>
         <Button success rounded onClick={handleWithWebWorker}>
-          Run Task With Web Worker
+          Do Long Task With Web Worker
         </Button>
         <Button
           secondary
           rounded
-          onClick={() => setTaskStatus('Control task completed!')}
+          onClick={() => setTaskStatus('Interaction!')}
         >
-          Control Button for Interactions
+          Click to Test Interactions
         </Button>
         <Button error rounded onClick={handleWithoutWebWorker}>
-          Run Task Without Web Worker
+          Do Long Task Without Web Worker
         </Button>
         {taskStatus && <span className='text-green-500'>{taskStatus}</span>}
       </section>
