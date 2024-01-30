@@ -11,6 +11,7 @@ import {
 import CumulativeLayoutShift from './routes/CumulativeLayoutShift';
 import Home from './routes/Home';
 import InteractionToNextPaint from './routes/InteractionToNextPaint';
+import LargestContentfulPaint from './routes/LargestContentfulPaint/index.tsx';
 import Layout from './routes/Layout';
 import reportWebVitals from './utils/reportWebVitals.ts';
 
@@ -30,6 +31,10 @@ const routes: RouteObject[] = [
       {
         path: 'inp',
         element: <InteractionToNextPaint />,
+      },
+      {
+        path: 'lcp',
+        element: <LargestContentfulPaint />,
       },
     ],
   },

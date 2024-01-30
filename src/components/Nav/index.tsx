@@ -16,10 +16,13 @@ export default function Nav(): JSX.Element {
               <Link to='/'>Home</Link>
             </li>
             <li>
-              <Link to='/cls'>Cumulative Layout Shift</Link>
+              <Link to='/cls'>CLS</Link>
             </li>
             <li>
-              <Link to='/inp'>Interaction to Next Paint</Link>
+              <Link to='/inp'>INP</Link>
+            </li>
+            <li>
+              <Link to='/lcp'>LCP</Link>
             </li>
           </ul>
         </div>
