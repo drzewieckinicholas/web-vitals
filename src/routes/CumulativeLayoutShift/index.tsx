@@ -1,32 +1,32 @@
 import { Cog6ToothIcon as CogIcon } from '@heroicons/react/24/solid';
 import { useEffect, useState } from 'react';
 
-import Whiteboard from '../../components/Svgr/Whiteboard';
+import { Whiteboard } from '../../components/Svgr';
 
-const imageLoadDelay = 1000;
+const contentLoadDelay = 1000;
 const elementShiftDelay = 3;
 const reservedHeight = 680;
 const reservedWidth = 740;
 
 export default function CumulativeLayoutShift(): JSX.Element {
-  const [isImageLoaded, setIsImageLoaded] = useState<boolean>(false);
+  const [isContentLoaded, setIsContentLoaded] = useState<boolean>(false);
   const [isElementShifted, setIsElementShifted] = useState<boolean>(false);
   const [secondsUntilShift, setSecondsUntilShift] =
     useState<number>(elementShiftDelay);
 
-  const shiftElementDelay = secondsUntilShift * imageLoadDelay;
+  const shiftElementDelay = secondsUntilShift * contentLoadDelay;
 
   useEffect(() => {
-    const loadImageTimeout = setTimeout(() => {
-      setIsImageLoaded(true);
-    }, imageLoadDelay);
+    const loadContentTimeout = setTimeout(() => {
+      setIsContentLoaded(true);
+    }, contentLoadDelay);
 
     const shiftElementTimeout = setTimeout(() => {
       setIsElementShifted(true);
     }, shiftElementDelay);
 
     return () => {
-      clearTimeout(loadImageTimeout);
+      clearTimeout(loadContentTimeout);
       clearTimeout(shiftElementTimeout);
     };
   }, [shiftElementDelay]);
@@ -35,11 +35,19 @@ export default function CumulativeLayoutShift(): JSX.Element {
     if (secondsUntilShift > 0) {
       const interval = setInterval(() => {
         setSecondsUntilShift((currentSeconds) => currentSeconds - 1);
-      }, imageLoadDelay);
+      }, contentLoadDelay);
 
       return () => clearInterval(interval);
     }
   }, [secondsUntilShift]);
+
+  const renderContent = () => {
+    if (isContentLoaded) {
+      return <Whiteboard />;
+    }
+
+    return <CogIcon className='size-8 animate-spin' />;
+  };
 
   return (
     <>
@@ -62,11 +70,7 @@ export default function CumulativeLayoutShift(): JSX.Element {
         <div
           className={`flex min-h-[${reservedHeight}px] min-w-[${reservedWidth}px] items-center justify-center bg-neutral-800`}
         >
-          {isImageLoaded ? (
-            <Whiteboard />
-          ) : (
-            <CogIcon className='size-8 animate-spin' />
-          )}
+          {renderContent()}
         </div>
       </section>
     </>
