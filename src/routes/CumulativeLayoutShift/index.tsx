@@ -5,8 +5,6 @@ import { Whiteboard } from '../../components/Svgr';
 
 const contentLoadDelay = 1000;
 const elementShiftDelay = 3;
-const reservedHeight = 680;
-const reservedWidth = 740;
 
 export default function CumulativeLayoutShift(): JSX.Element {
   const [isContentLoaded, setIsContentLoaded] = useState<boolean>(false);
@@ -68,7 +66,7 @@ export default function CumulativeLayoutShift(): JSX.Element {
           can be avoided by reserving the space for them in the initial layout.
         </p>
         <div
-          className={`flex min-h-[${reservedHeight}px] min-w-[${reservedWidth}px] items-center justify-center bg-neutral-800`}
+          className='flex min-h-[680px] min-w-[740px] items-center justify-center bg-neutral-800'
         >
           {renderContent()}
         </div>

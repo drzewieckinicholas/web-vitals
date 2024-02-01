@@ -9,9 +9,7 @@ const reportWebVitals = (onPerfEntry?: ReportCallback) => {
         });
         onFCP(onPerfEntry);
         onFID(onPerfEntry);
-        onINP(onPerfEntry, {
-          reportAllChanges: true,
-        });
+        onINP(onPerfEntry);
         onLCP(onPerfEntry);
         onTTFB(onPerfEntry);
       },
